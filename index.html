@@ -29,6 +29,8 @@
 		document.querySelector('#get-text-arrow').addEventListener('click', getTextArrow); 
 		document.querySelector('#get-users').addEventListener('click', getUsers);
 		document.querySelector('#get-posts').addEventListener('click', getPosts);
+		document.querySelector('#addPost').addEventListener('submit', addPost);
+
 // Old school style
 		function getText() {
 			fetch('sample.txt') 
@@ -86,7 +88,23 @@
 					});
 					document.querySelector('#output').innerHTML = output; 
 				})
+		}
 
+		function addPost(e) {
+			e.preventDefault();
+			let title = document.querySelector('#title').value; 
+			let body = document.querySelector('#body').value;
+
+			fetch('https://jsonplaceholder.typicode.com/posts', {
+				method:'POST',
+				headers:{
+					'Accept': 'application/json, text/plain, */*', 
+					'Content-type': 'application/json'
+				},
+				body:JSON.stringify({title:title, body:body}) 
+			}) 
+				.then((response) => response.json())
+				.then((data) => console.log(data))
 		}
 
 	</script>
