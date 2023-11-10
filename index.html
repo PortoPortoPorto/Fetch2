@@ -15,6 +15,7 @@
 			<button class = "btn btn-success mr-4" id= "get-text-arrow">Get Text Arrow</button>
 			<button class = "btn btn-warning mr-4" id= "get-users">Get JSON</button>
 			<button class = "btn btn-secondary mr-4" id= "get-posts">Get API DATA</button>
+			<button class = "btn btn-danger mr-4" id = "get-haiku">Get Haiku</button>
 		</div>
 		<hr>
 		<div id = "output"></div>
@@ -34,6 +35,7 @@
 		document.querySelector('#get-users').addEventListener('click', getUsers);
 		document.querySelector('#get-posts').addEventListener('click', getPosts);
 		document.querySelector('#addPost').addEventListener('submit', addPost);
+		document.querySelector('#get-haiku').addEventListener('click', getHaiku);
 
 // Old school style
 		function getText() {
@@ -109,6 +111,14 @@
 			}) 
 				.then((response) => response.json())
 				.then((data) => console.log(data))
+		}
+
+		function getHaiku () {
+			fetch('haiku.txt')
+				.then((response) => reponse.text())
+				.then((data) => {
+					console.log(data); 
+				})
 		}
 
 	</script>
