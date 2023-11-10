@@ -65,6 +65,15 @@
 				.then((response) => response.json())
 				.then((json) => {
 					console.log(json); 
+					let output = '<h2>Posts</h2>'; 
+					json.forEach(function(post){
+						output += `
+							<div>	
+								<h3>${post.title}</h3>
+								<p>${post.body}</p>
+							</div>
+						`;
+					});
 				})
 
 		}
