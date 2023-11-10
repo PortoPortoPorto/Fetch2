@@ -9,12 +9,13 @@
 <body>
 	<button id= "get-text">Get Text </button>
 	<button id= "get-text-arrow">Get Text Arrow</button>
+	<div id = "output"></div>
 
 
 	<script>
 		document.querySelector('#get-text').addEventListener('click', getText);
 		document.querySelector('#get-text-arrow').addEventListener('click', getTextArrow); 
-
+// Old school style
 		function getText() {
 			fetch('sample.txt') 
 			.then(function(response) {
@@ -24,11 +25,13 @@
 				console.log(data); 
 			});
 		}
-
+// arrow function style
 		function getTextArrow() {
 			fetch('sample.txt')
 			.then((response) => response.text())
-			.then((data) => console.log(data))
+			.then((data) => {
+				document.querySelector('#output').innerHTML = data; 
+			})
 		}
 
 	</script>
