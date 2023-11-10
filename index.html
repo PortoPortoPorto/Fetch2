@@ -9,12 +9,14 @@
 <body>
 	<button id= "get-text">Get Text </button>
 	<button id= "get-text-arrow">Get Text Arrow</button>
+	<button id= "get-users">Get Users</button>
 	<div id = "output"></div>
 
 
 	<script>
 		document.querySelector('#get-text').addEventListener('click', getText);
 		document.querySelector('#get-text-arrow').addEventListener('click', getTextArrow); 
+		document.querySelector('#get-users').addEventListener('click', getUsers);
 // Old school style
 		function getText() {
 			fetch('sample.txt') 
@@ -31,6 +33,17 @@
 			.then((response) => response.text())
 			.then((data) => {
 				document.querySelector('#output').innerHTML = data; 
+			})
+			//error catch 
+			.catch((err) => console.log(err))
+		}
+
+		function getUsers() {
+			fetch('users.json')
+			.then((response) => response.json())
+			then.((data) => {
+				let output = '<h2>Users</h2>'; 
+				console.log(data); 
 			})
 		}
 
