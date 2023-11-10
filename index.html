@@ -9,7 +9,8 @@
 <body>
 	<button id= "get-text">Get Text </button>
 	<button id= "get-text-arrow">Get Text Arrow</button>
-	<button id= "get-users">Get Users</button>
+	<button id= "get-users">Get JSON</button>
+	<button id= "get-posts">Get API DATA</button>
 	<div id = "output"></div>
 
 
@@ -17,6 +18,7 @@
 		document.querySelector('#get-text').addEventListener('click', getText);
 		document.querySelector('#get-text-arrow').addEventListener('click', getTextArrow); 
 		document.querySelector('#get-users').addEventListener('click', getUsers);
+		document.querySelector('#get-posts').addEventListener('click', getPosts);
 // Old school style
 		function getText() {
 			fetch('sample.txt') 
@@ -55,6 +57,16 @@
 				});
 				document.querySelector('#output').innerHTML = output; 
 			})
+		}
+
+
+		function getPosts() {
+			fetch('https://jsonplaceholder.typicode.com/posts')
+				.then((response) => response.json())
+				.then((json) => {
+					console.log(json); 
+				})
+
 		}
 
 	</script>
