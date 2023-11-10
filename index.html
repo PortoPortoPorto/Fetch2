@@ -1,4 +1,4 @@
-// hoping this works 
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +16,11 @@
 		function getText() {
 			fetch('sample.txt') 
 			.then(function(response) {
-				console.log(response); 
+				return response.text(); 
 			})
+			.then(function(data)){
+				console.log(data); 
+			}
 		}
 
 	</script>
