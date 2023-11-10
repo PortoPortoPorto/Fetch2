@@ -115,9 +115,10 @@
 
 		function getHaiku () {
 			fetch('haiku.txt')
-				.then((response) => reponse.text())
+				.then((response) => response.text())
 				.then((data) => {
 					console.log(data); 
+					document.querySelector('#output').innerHTML = data; 
 				})
 		}
 
