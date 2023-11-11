@@ -13,7 +13,7 @@
 		<div class = "d-flex">
 			<button class = "btn btn-primary mr-4" id= "get-haikus">Get Haikus </button>
 			<button class = "btn btn-success mr-4" id= "get-text-arrow">Get Text Arrow</button>
-			<button class = "btn btn-warning mr-4" id= "get-users">Get JSON</button>
+			<button class = "btn btn-warning mr-4" id= "get-random">Get Random Haiku</button>
 			<button class = "btn btn-secondary mr-4" id= "get-posts">Get API DATA</button>
 			<button class = "btn btn-danger mr-4" id = "get-haiku">Get Haiku</button>
 		</div>
@@ -32,7 +32,7 @@
 	<script>
 		document.querySelector('#get-haikus').addEventListener('click', getHaikus);
 		document.querySelector('#get-text-arrow').addEventListener('click', getTextArrow); 
-		document.querySelector('#get-users').addEventListener('click', getUsers);
+		document.querySelector('#get-random').addEventListener('click', getRandomHaiku);
 		document.querySelector('#get-posts').addEventListener('click', getPosts);
 		document.querySelector('#addPost').addEventListener('submit', addPost);
 		document.querySelector('#get-haiku').addEventListener('click', getHaiku);
@@ -128,7 +128,7 @@
 					let output = '<h2>Haikus</h2>';
 					data.forEach(function(haiku){
 						output += 
-						`<div class = "card-body mb-4">
+						`<div class = "card-body mb-5">
 							<h3>${haiku.line1}</h3>
 							<h3>${haiku.line2}</h3>
 							<h3>${haiku.line3}</h3>
@@ -136,6 +136,28 @@
 						`;
 					});
 					document.querySelector('#output').innerHTML= output; 
+				})
+		}
+
+		function randomiseHaiku() {
+			const randomIndex = Math.Floor(Math.random() * data.length);
+			return data[randomIndex]; 
+		}
+
+
+		function getRandomHaiku() {
+			fetch('haikus.json')
+				.then((response) => response.json())
+				.then((data) => {
+					let output = '<h1>Random Haiku</h1>';
+					const randomHaiku = randomiseHaiku(data);
+					output += 
+					`<div class = "card-body">
+						<h3>${randomHaiku.line1}</h3>
+						<h3>${randomHaiku.line2}</h3>
+						<h3>${randomHaiku.line3}</h3>
+					</div>
+					`;
 				})
 		}
 
