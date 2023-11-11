@@ -11,7 +11,7 @@
 	<div class = "container">
 		<h1 class = "display-4 mb-4" >Fetch API Sandbox</h1>
 		<div class = "d-flex">
-			<button class = "btn btn-primary mr-4" id= "get-text">Get Text </button>
+			<button class = "btn btn-primary mr-4" id= "get-haikus">Get Haikus </button>
 			<button class = "btn btn-success mr-4" id= "get-text-arrow">Get Text Arrow</button>
 			<button class = "btn btn-warning mr-4" id= "get-users">Get JSON</button>
 			<button class = "btn btn-secondary mr-4" id= "get-posts">Get API DATA</button>
@@ -30,7 +30,7 @@
 		</form>
 	</div>
 	<script>
-		document.querySelector('#get-text').addEventListener('click', getText);
+		document.querySelector('#get-haikus').addEventListener('click', getHaikus);
 		document.querySelector('#get-text-arrow').addEventListener('click', getTextArrow); 
 		document.querySelector('#get-users').addEventListener('click', getUsers);
 		document.querySelector('#get-posts').addEventListener('click', getPosts);
@@ -117,8 +117,23 @@
 			fetch('haiku.txt')
 				.then((response) => response.text())
 				.then((data) => {
-					console.log(data); 
 					document.querySelector('#output').innerHTML = data; 
+				}); 
+		}
+
+		function getHaikus() {
+			fetch('haikus.json')
+				.then((response) => response.json())
+				.then((data) => {
+					let output = '<h2>Haikus</h2>';
+					data.forEach(function(haiku){
+						output += 
+						`<div class = "card-body">
+							<h3>${haiku.poem}<h3>
+						 </div>
+						`;
+					});
+					document.querySelector('#output').innerHTML= output; 
 				})
 		}
 
