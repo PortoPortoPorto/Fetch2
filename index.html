@@ -128,8 +128,10 @@
 					let output = '<h2>Haikus</h2>';
 					data.forEach(function(haiku){
 						output += 
-						`<div class = "card-body">
-							<h3>${haiku.poem}<h3>
+						`<div class = "card-body mb-4">
+							<h3>${haiku.line1}</h3>
+							<h3>${haiku.line2}</h3>
+							<h3>${haiku.line3}</h3>
 						 </div>
 						`;
 					});

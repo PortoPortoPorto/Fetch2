@@ -1,12 +1,18 @@
 
 [
   {
-    "poem": "An owner of the old thatched hut \n Is also changed to another \n It’s the Doll’s Festival."
+    "line1": "An owner of the old thatched hut", 
+    "line2": "Is also changed to another", 
+    "line3": "It’s the Doll’s Festival."
   },
   {
-    "poem": "Spring is passing. \n The birds cry, and the fishes’ eyes are \n With tears."
+    "line1": "Spring is passing.", 
+    "line2": "The birds cry, and the fishes’ eyes are",  
+    "line3": " With tears."
   },
   {
-    "poem": "The summer grasses. \n All that remains \n Of warriors’ dreams."
+    "line1": "The summer grasses.",
+    "line2": "All that remains",
+    "line3": "Of warriors’ dreams."
   }
 ]
