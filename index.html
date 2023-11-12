@@ -142,6 +142,7 @@
 		function randomiseHaiku(data) {
 			const randomIndex = Math.floor(Math.random() * data.length);
 			return data[randomIndex]; 
+			console.log(data); 
 		}
 
 		//fetch haiku and show a random one 
@@ -159,6 +160,8 @@
 					</div>
 					`;
 				})
+				document.querySelector('#output').innerHTML= output; 
+				.catch((error) => console.error('Error', error)); 
 		}
 
 	</script>
