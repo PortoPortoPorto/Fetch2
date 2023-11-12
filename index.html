@@ -159,8 +159,8 @@
 						<h3>${randomHaiku.line3}</h3>
 					</div>
 					`;
+					document.querySelector('#output').innerHTML= output; 
 				})
-				document.querySelector('#output').innerHTML= output; 
 				.catch((error) => console.error('Error', error)); 
 		}
 
